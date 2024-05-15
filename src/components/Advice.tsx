@@ -10,11 +10,9 @@ type AdviceProp={
 }
 const Advice=({id, advice, handleclick}:AdviceProp)=>{
     const [showLoading, setShowLoading] = useState<boolean>(true);
-    const [show,setShow]=useState(false)
+    const [show,setShow]=useState<boolean>(false)
     const handleClose = () => setShow(false);
-    useEffect(()=>{
-        setShow(true)
-     },[])
+   
     useEffect(() => {
         setShowLoading(true);
         const timer = setTimeout(() => {
@@ -23,7 +21,10 @@ const Advice=({id, advice, handleclick}:AdviceProp)=>{
 
         return () => clearTimeout(timer);
     }, [handleclick]);
-    
+    useEffect(()=>{
+        window.addEventListener("load",()=>{setShow(true)})
+        
+     },[])
     return(
         <>
         <div className="advice">

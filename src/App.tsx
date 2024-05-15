@@ -1,24 +1,31 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from 'react';
+import Advice from './components/Advice';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import "./App.css"
 
+type Advice={
+  slip: {id:number, advice:string}
+}
 function App() {
+  const [advice, setAdvice]=useState<Advice>()
+  const fetchAdvice = async () => {
+    try {
+      const response = await fetch("https://api.adviceslip.com/advice");
+      const data: Advice = await response.json();
+      setAdvice(data);
+    } catch (error) {
+      console.error("Error fetching advice:", error);
+    }
+  };
+
+  useEffect(() => {
+    fetchAdvice();
+  }, []);
+
+  console.log(advice)
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="my-grid">
+      <Advice handleclick={fetchAdvice} id={advice?.slip.id} advice={advice?.slip.advice}/>
     </div>
   );
 }

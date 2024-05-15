@@ -13,6 +13,7 @@ body{
   gap: 25px;
   overflow: visible;
   padding: 25px;
+  border-radius: 0.5cm;
 }
 .advice h4{
   color: hsl(150, 100%, 66%);
@@ -25,7 +26,7 @@ body{
 }
 .advice h3{
   color: hsl(193, 38%, 86%);
-  animation-name: animate;
+  animation-name: animate2,animate;
   animation-duration: 2s;
   animation-timing-function: ease-in-out;
   animation-fill-mode: forwards;
@@ -38,6 +39,12 @@ body{
   cursor: pointer;
  top: 395px;
  margin-left: -20px;
+  border-radius: 100%;
+  transition: 1s;
+}
+.dice1{
+  background-color: hsl(150, 100%, 66%);
+  padding: 10px;
   border-radius: 100%;
   transition: 1s;
 }
@@ -55,17 +62,16 @@ body{
     100%{opacity: 1;}
 }
 @keyframes animate2 {
-  from{transform: translateY(-300px);}
-  to{transform: translateY(-25px);}
+  from{transform: translateY(-30px);}
+  to{transform: translateY(0);}
 }
-@media(max-width:1280px){
+@media(max-width:1300px){
   .advice{
     
-    margin: 250px auto;
+    margin: 350px auto;
   }
   .dice{
-   
-   top: 475px;
+    top: 570px;
   }
 }
 @media(max-width:580px){
@@ -73,25 +79,27 @@ body{
     
     height: 250px;
     width: 450px;
-    
+    margin-top: 345px;
   }
+  .dice{
+    top: 570px;
+   }
 }
 @media(max-width:500px){
   .advice{
     
     height: 250px;
-    width: 95%
+    
     
   }
 }
 @media(max-width:450px){
   .advice{
-    margin: 250px auto;
-    gap: 25px;
-    height: 230px;
+    height: 250px;
+    width: 95%;
+    margin-top: 345px;
   }
   .dice{
-   
-   top: 460px;
+   top: 570px;
   }
 }

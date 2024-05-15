@@ -22,8 +22,7 @@ const Advice=({id, advice, handleclick}:AdviceProp)=>{
         return () => clearTimeout(timer);
     }, [handleclick]);
     useEffect(()=>{
-        window.addEventListener("load",()=>{setShow(true)})
-        
+        setShow(true)
      },[])
     return(
         <>
